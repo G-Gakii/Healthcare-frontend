@@ -1,0 +1,27 @@
+.partner_container {
+  padding: 1rem;
+  p {
+    text-align: center;
+    line-height: 1.5;
+    color: #bbc0c3;
+  }
+  .partners {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .partner_container {
+    .partners {
+      flex-wrap: wrap;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@import "../../../variable.scss";
+
+nav {
+  background-color: $white;
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+  padding: 1rem;
+  width: 100%;
+  div {
+    svg {
+      display: none;
+    }
+  }
+  section.links {
+    display: flex;
+    flex-direction: row;
+  }
+}
+svg {
+  color: white;
+}
+a {
+  padding: 1rem;
+  text-decoration: none;
+  color: black;
+  text-transform: capitalize;
+}
+a:visited {
+  color: $main;
+}
+
+section {
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  a {
+    padding: 0.5rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  nav {
+    flex-direction: row;
+    align-items: center;
+    div {
+      svg {
+        display: block;
+      }
+    }
+    section.links {
+      display: none;
+    }
+    section.links.display {
+      display: flex;
+      flex-direction: column;
+    }
+    section.links.hid {
+      display: none;
+    }
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+}

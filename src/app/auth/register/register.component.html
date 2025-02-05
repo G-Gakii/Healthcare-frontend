@@ -1,61 +1,64 @@
-<form [formGroup]="registerForm" (submit)="registerUser()">
-  @if (registerError) {
-  <p class="error">{{ registerError }}</p>
-  }
-  <h1>Register Form</h1>
-  <label for="username">Username</label>
-  <input
-    type="text"
-    name="username"
-    placeholder="e.g Jane Doe"
-    formControlName="username"
-  />
-  @if (registerForm.get("username")?.hasError("required") &&
-  registerForm.get("username")?.touched) {
-  <p class="error">Username required</p>
-  }
+<div class="form_container">
+  <form [formGroup]="registerForm" (submit)="registerUser()">
+    @if (registerError) {
+    <p class="error">{{ registerError }}</p>
+    }
+    <h1>Register Form</h1>
+    <label for="username">Username</label>
+    <input
+      type="text"
+      name="username"
+      placeholder="e.g Jane Doe"
+      formControlName="username"
+    />
+    @if (registerForm.get("username")?.hasError("required") &&
+    registerForm.get("username")?.touched) {
+    <p class="error">Username required</p>
+    }
 
-  <label for="email">Email</label>
-  <input
-    type="email"
-    name="email"
-    placeholder="jane@example.com"
-    formControlName="email"
-  />
-  @if (registerForm.get("email")?.hasError("required") &&
-  registerForm.get("email")?.touched) {
-  <p class="error">Email required</p>
-  }@else if (registerForm.get("email")?.hasError("email") &&
-  registerForm.get("email")?.touched) {
-  <p class="error">Invalid email format</p>
-  }
+    <label for="email">Email</label>
+    <input
+      type="email"
+      name="email"
+      placeholder="jane@example.com"
+      formControlName="email"
+    />
+    @if (registerForm.get("email")?.hasError("required") &&
+    registerForm.get("email")?.touched) {
+    <p class="error">Email required</p>
+    }@else if (registerForm.get("email")?.hasError("email") &&
+    registerForm.get("email")?.touched) {
+    <p class="error">Invalid email format</p>
+    }
 
-  <label for="password">Password</label>
-  <input
-    type="password"
-    name="password"
-    placeholder="Enter your password"
-    formControlName="password"
-  />
-  @if (registerForm.get("password")?.hasError("required") &&
-  registerForm.get("password")?.touched) {
-  <p class="error">Password required</p>
-  }@else if (registerForm.get("password")?.hasError("pattern") &&
-  registerForm.get("email")?.touched) {
-  <p class="error">
-    Password must be 3-30 characters long and contain only letters and numbers.
-  </p>
-  }
+    <label for="password">Password</label>
+    <input
+      type="password"
+      name="password"
+      placeholder="Enter your password"
+      formControlName="password"
+    />
+    @if (registerForm.get("password")?.hasError("required") &&
+    registerForm.get("password")?.touched) {
+    <p class="error">Password required</p>
+    }@else if (registerForm.get("password")?.hasError("pattern") &&
+    registerForm.get("email")?.touched) {
+    <p class="error">
+      Password must be 3-30 characters long and contain only letters and
+      numbers.
+    </p>
+    }
 
-  <select name="role" id="role" formControlName="role">
-    <option value="" disabled selected>Choose your role</option>
-    <option value="admin">Admin</option>
-    <option value="user">User</option>
-  </select>
-  @if (registerForm.get("role")?.hasError("required") &&
-  registerForm.get("role")?.touched) {
-  <p class="error">Username required</p>
-  }
+    <select name="role" id="role" formControlName="role">
+      <option value="" disabled selected>Choose your role</option>
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+    </select>
+    @if (registerForm.get("role")?.hasError("required") &&
+    registerForm.get("role")?.touched) {
+    <p class="error">Username required</p>
+    }
 
-  <button type="submit">Register</button>
-</form>
+    <button type="submit">Register</button>
+  </form>
+</div>

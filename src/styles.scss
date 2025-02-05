@@ -7,7 +7,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
+.form_container {
   background-color: $main;
   min-height: 100vh;
   display: flex;
@@ -15,16 +15,17 @@ body {
   align-items: center;
   font-size: 1rem;
   font-family: "Roboto", serif;
+  width: 100%;
 }
 h1 {
   text-align: center;
   padding: 1.5rem;
 }
 form {
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: whitesmoke;
   max-width: 500px;
-  border-radius: 0.5rem;
+  border-radius: 0.8rem;
 }
 label {
   font-size: 1.1rem;
@@ -54,4 +55,16 @@ button {
   font-size: 1.3rem;
   color: white;
   background-color: $main;
+}
+a {
+  padding: 1rem;
+}
+.link.btn {
+  background-color: $navblue;
+  color: $white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+p {
+  line-height: 1.5;
 }
