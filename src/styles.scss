@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./variable.scss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: $main;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-family: "Roboto", serif;
+}
+h1 {
+  text-align: center;
+  padding: 1.5rem;
+}
+form {
+  padding: 1rem;
+  background-color: whitesmoke;
+  max-width: 500px;
+  border-radius: 0.5rem;
+}
+label {
+  font-size: 1.1rem;
+}
+input,
+select {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+  border: none;
+}
+::placeholder {
+  font-size: 1rem;
+}
+.error {
+  color: red;
+  padding: 0.5rem;
+  text-align: center;
+}
+button {
+  padding: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1.3rem;
+  color: white;
+  background-color: $main;
+}

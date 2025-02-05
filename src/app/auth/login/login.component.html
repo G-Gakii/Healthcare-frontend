@@ -1,0 +1,34 @@
+<form action="" [formGroup]="loginForm" (submit)="loginUser()">
+  @if (errorMsg) {
+  <p class="error">{{ errorMsg }}</p>
+  }
+  <h1>signin Form</h1>
+
+  <label for="email">Email</label>
+  <input
+    type="email"
+    name="email"
+    placeholder="jane@example.com"
+    formControlName="email"
+  />
+  @if (loginForm.get("email")?.hasError("required") &&
+  loginForm.get("email")?.touched) {
+  <p class="error">Email required</p>
+  }@else if (loginForm.get("email")?.hasError("email") &&
+  loginForm.get("email")?.touched) {
+  <p class="error">Invalid email format</p>
+  }
+
+  <label for="password">Password</label>
+  <input
+    type="password"
+    name="password"
+    placeholder="Enter your password"
+    formControlName="password"
+  />
+  @if (loginForm.get("password")?.hasError("required") &&
+  loginForm.get("password")?.touched) {
+  <p class="error">Password required</p>
+  }
+  <button type="submit">sign in</button>
+</form>
