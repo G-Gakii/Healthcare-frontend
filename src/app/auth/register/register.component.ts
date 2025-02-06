@@ -36,7 +36,7 @@ export class RegisterComponent {
     });
   }
 
-  registerUser = () => {
+  registerUser(): void {
     console.log('clicked');
 
     if (this.registerForm.invalid) {
@@ -49,5 +49,5 @@ export class RegisterComponent {
       },
       error: (error) => console.log('error', error),
     });
-  };
+  }
 }

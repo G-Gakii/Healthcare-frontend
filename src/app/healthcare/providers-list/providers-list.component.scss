@@ -1,0 +1,49 @@
+@import "../../../variable.scss";
+
+.providers_list_container {
+  background-color: #e6f1f8e3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 4rem 2rem;
+  gap: 1rem;
+  .provider_card {
+    background-color: $white;
+    padding: 1rem;
+    width: 400px;
+    border-radius: 1rem;
+    text-align: start;
+  }
+  h2,
+  span {
+    color: $navblue;
+    font-weight: 400;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .btn {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    gap: 1rem;
+    button {
+      width: fit-content;
+      min-width: 100px;
+      background-color: $white;
+      color: $foundationGrey;
+      border: 1px solid $background;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .service {
+      background-color: $skyBlue;
+      color: $white;
+    }
+  }
+}
+::placeholder {
+  text-transform: capitalize;
+}

@@ -1,8 +1,13 @@
+enum myRole {
+  admin,
+  user,
+}
+
 export interface User {
   username: string;
   email?: string;
   password: string;
-  role?: 'admin' | 'user';
+  role?: myRole;
 }
 
 export interface Token {

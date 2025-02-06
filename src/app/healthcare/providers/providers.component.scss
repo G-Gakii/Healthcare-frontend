@@ -1,0 +1,35 @@
+@import "../../../variable.scss";
+
+.provider_container {
+  padding: 5rem 2rem 2rem;
+  h1 {
+    text-align: start;
+  }
+  section {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    input {
+      border: 1px solid $foundationGrey;
+    }
+    .filter {
+      background-color: $white;
+      color: $navblue;
+      border: 1px solid $foundationGrey;
+
+      border-radius: 0.5rem;
+      padding: 0.9rem;
+      max-width: 120px;
+      margin: 0;
+    }
+
+    .link.btn {
+      background-color: $navblue;
+      color: $white;
+      border-radius: 0.9rem;
+      padding: 1rem;
+      max-width: 120px;
+      margin: 0;
+    }
+  }
+}

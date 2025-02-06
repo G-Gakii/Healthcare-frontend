@@ -1,1 +1,24 @@
-<p>providers works!</p>
+<div class="provider_container">
+  @if (errorMsg) {
+  <p class="error">{{ errorMsg }}</p>
+  }
+  <h1>
+    Find the right healthcare <br />
+    providers in seconds
+  </h1>
+  <p>
+    Easily search for verified facilities and specialist based on location
+    <br />expertise,insurance coverage and availability because quality <br />
+    healthcare should just be a click
+  </p>
+  <section>
+    <input
+      (keyup)="searchProvider()"
+      type="text"
+      [(ngModel)]="specilization"
+      placeholder="Search for a provider near you by specialization"
+    />
+    <button class="filter">Filter</button>
+    <button class="link btn">Search</button>
+  </section>
+</div>

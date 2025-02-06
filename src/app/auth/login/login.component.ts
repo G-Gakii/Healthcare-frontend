@@ -31,7 +31,7 @@ export class LoginComponent {
     });
   }
 
-  loginUser() {
+  loginUser(): void {
     console.log('clicked');
 
     if (this.loginForm.invalid) {

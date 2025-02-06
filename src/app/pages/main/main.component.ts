@@ -4,6 +4,8 @@ import { HeroComponent } from '../hero/hero.component';
 import { PartnersComponent } from '../partners/partners.component';
 import { FeaturesComponent } from '../features/features.component';
 import { StagesComponent } from '../stages/stages.component';
+import { ProvidersComponent } from '../../healthcare/providers/providers.component';
+import { ProvidersListComponent } from '../../healthcare/providers-list/providers-list.component';
 
 @Component({
   selector: 'app-main',
@@ -14,6 +16,8 @@ import { StagesComponent } from '../stages/stages.component';
     PartnersComponent,
     FeaturesComponent,
     StagesComponent,
+    ProvidersComponent,
+    ProvidersListComponent,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',

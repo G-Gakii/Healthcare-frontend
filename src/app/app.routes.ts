@@ -23,4 +23,11 @@ export const routes: Routes = [
     path: '',
     component: MainComponent,
   },
+  {
+    path: 'search-provider',
+    loadComponent: () =>
+      import('./healthcare/providers/providers.component').then(
+        (c) => c.ProvidersComponent
+      ),
+  },
 ];

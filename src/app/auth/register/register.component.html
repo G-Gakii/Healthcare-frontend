@@ -38,6 +38,7 @@
       placeholder="Enter your password"
       formControlName="password"
     />
+
     @if (registerForm.get("password")?.hasError("required") &&
     registerForm.get("password")?.touched) {
     <p class="error">Password required</p>

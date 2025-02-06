@@ -1,0 +1,24 @@
+<div class="providers_list_container">
+  @for (provider of providers; track $index) {
+  <div class="provider_card">
+    <h1>{{ provider.name }}</h1>
+    <p>{{ provider.location.coordinates }}</p>
+    <p><span>Consultation fee:</span> {{ provider.consultation_fee }}</p>
+    <h2>Accepted insurance:</h2>
+    <div class="btn">
+      @for (insurance of provider.insurance; track $index) {
+
+      <button>{{ insurance }}</button>
+      }
+    </div>
+    <h2>Our Services:</h2>
+    <div class="btn">
+      @for (specialization of provider.specialization; track $index) {
+
+      <button class="service">{{ specialization }}</button>
+      }
+    </div>
+  </div>
+
+  }
+</div>
