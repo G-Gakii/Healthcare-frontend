@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent {
 
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
+  private router = inject(Router);
 
   constructor() {
     effect(() => {
@@ -32,8 +34,6 @@ export class LoginComponent {
   }
 
   loginUser(): void {
-    console.log('clicked');
-
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
       return;
@@ -41,6 +41,8 @@ export class LoginComponent {
     this.authService.loginUser(this.loginForm.value).subscribe({
       next: (res) => {
         console.log(res);
+        this.router.navigate(['']);
+
         this.loginForm.reset();
       },
       error: (error) => {

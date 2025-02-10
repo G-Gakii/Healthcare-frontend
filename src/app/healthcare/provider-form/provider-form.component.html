@@ -1,0 +1,94 @@
+<div class="form_container">
+  <form action="" [formGroup]="providerForm" (submit)="addProvider()">
+    <h1>Providers Form</h1>
+    <label for="name">Name</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      placeholder="e.g Jane Doe"
+      formControlName="name"
+    />
+    <label for="email">Email address</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="e.g jane@example.com"
+      formControlName="email"
+    />
+    <label for=" consultation_fee"> consultation Fee</label>
+    <input
+      type="number"
+      name=" consultation_fee"
+      id=" consultation_fee"
+      placeholder="e.g 1000"
+      formControlName="consultation_fee"
+    />
+    <fieldset class="location" formGroupName="location">
+      <legend>Location</legend>
+      <div formArrayName="coordinates">
+        <div>
+          <label for="latitude">Latitude</label>
+          <input
+            type="number"
+            name="latitude"
+            id="latitude"
+            placeholder="e.g 39.368279"
+            formControlName="0"
+          />
+        </div>
+        <div>
+          <label for="longitude">Longitude</label>
+          <input
+            type="number"
+            name="longitude"
+            id="longitude"
+            placeholder="e.g 31.551815 "
+            formControlName="1"
+          />
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="spec" formArrayName="specialization">
+      <div class="array">
+        <label for="specialization">Specialization</label>
+        <button (click)="addSpecilization()">+</button>
+      </div>
+
+      @for (spec of specialization.controls ; track $index) {
+
+      <input
+        type="text"
+        name="specialization"
+        id="specialization"
+        placeholder="e.g Dental"
+        [formControlName]="$index"
+      />
+      }
+    </div>
+
+    <section formArrayName="insurance">
+      <div class="spec">
+        <div class="array">
+          <label for="insurance">Insurance</label>
+          <button (click)="addInsurance()">+</button>
+        </div>
+
+        @for (insur of insurance.controls; track $index) {
+
+        <input
+          type="text"
+          name="insurance"
+          id="insurance"
+          placeholder="e.g BPB"
+          [formControlName]="$index"
+        />
+        }
+      </div>
+    </section>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

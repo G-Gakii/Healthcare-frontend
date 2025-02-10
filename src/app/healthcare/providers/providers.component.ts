@@ -30,17 +30,15 @@ export class ProvidersComponent {
   showPosition(position: Geolocation) {
     this.latitude = position.coords.latitude;
     this.longitude = position.coords.longitude;
-    console.log(this.latitude, this.longitude);
   }
 
   searchProvider() {
-    console.log('longitude', this.longitude);
-    console.log('latitude', this.latitude);
-
     this.providerService
       .searchProvider(this.latitude, this.longitude, this.specilization)
       .subscribe({
-        next: (res) => this.providerService.providersSignal.set(res.providers),
+        next: (res) => {
+          this.providerService.providersSignal.set(res);
+        },
         error: (error) => console.log('geolocation', error),
       });
   }

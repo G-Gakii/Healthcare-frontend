@@ -22,8 +22,15 @@
   .btn {
     margin-top: 0.5rem;
     display: flex;
+    gap: 1rem;
     justify-content: center;
     text-decoration: none;
+    .btn.link.two {
+      background-color: transparent;
+      color: $navblue;
+      border: 1px solid $navblue;
+      font-weight: 500;
+    }
   }
   a {
     text-transform: capitalize;

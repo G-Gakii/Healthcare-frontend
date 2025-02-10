@@ -1,0 +1,32 @@
+<div class="provider_container">
+  <h1>{{ provider.name }}</h1>
+  <h2>We offer these services:</h2>
+
+  @for (prov of provider.specialization; track $index) {
+  <ul>
+    <li>{{ prov }}</li>
+  </ul>
+
+  }
+  <h3>Accepted Insurance Providers</h3>
+  @for (prov of provider.insurance; track $index) {
+  <ul>
+    <li>{{ prov }}</li>
+  </ul>
+
+  }
+  <p>{{ provider.rate }}</p>
+
+  <h3>Customers feedback</h3>
+
+  @for (review of provider.reviews; track $index) {
+  <ul>
+    <li>{{ review.comment }} {{ review.rating }}</li>
+  </ul>
+
+  }
+  <div class="btn">
+    <button class="btn link">Book Appointment</button>
+    <button class="btn link">Review us</button>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-interface Location {
+export interface Location {
   type: string;
   coordinates: number[];
 }
@@ -21,7 +21,7 @@ export interface Providers {
   rate: number;
   id: string;
   email: string;
-  reviews: Review;
+  reviews: Review[];
 }
 export interface providersResponse {
   providers: Providers[];

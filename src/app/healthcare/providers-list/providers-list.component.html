@@ -1,6 +1,6 @@
 <div class="providers_list_container">
   @for (provider of providers; track $index) {
-  <div class="provider_card">
+  <div class="provider_card" (click)="getproviderid(provider._id)">
     <h1>{{ provider.name }}</h1>
     <p>{{ provider.location.coordinates }}</p>
     <p><span>Consultation fee:</span> {{ provider.consultation_fee }}</p>

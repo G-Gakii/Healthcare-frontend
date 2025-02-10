@@ -1,8 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { User } from '../interface/user';
-import { catchError, Observable, throwError } from 'rxjs';
-import { Token } from '@angular/compiler';
+import { catchError, Observable, tap, throwError } from 'rxjs';
+import { Token } from '../interface/user';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +10,7 @@ import { Token } from '@angular/compiler';
 export class AuthService {
   private http = inject(HttpClient);
   ErrorMsg = signal('');
+  isloggingIn = signal(false);
 
   constructor() {}
 
@@ -20,10 +21,21 @@ export class AuthService {
   };
 
   loginUser = (user: User): Observable<Token> => {
-    return this.http
-      .post<Token>('login', user)
-      .pipe(catchError(this.handleError.bind(this)));
+    console.log('logging start');
+
+    this.isloggingIn.set(true);
+    console.log('logging', this.isloggingIn());
+
+    return this.http.post<Token>('login', user).pipe(
+      tap((res: Token) => {
+        localStorage.setItem('token', res.accessToken);
+      }),
+      catchError(this.handleError.bind(this))
+    );
   };
+  getToken() {
+    return localStorage.getItem('token');
+  }
   private handleError = (error: HttpErrorResponse) => {
     if (error.error instanceof Error) {
       this.ErrorMsg.set(error.message);
