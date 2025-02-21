@@ -5,6 +5,10 @@
   <app-partners></app-partners>
   <app-features></app-features>
   <app-providers id="providers"></app-providers>
-  <app-providers-list></app-providers-list>
+  <app-providers-list
+    [class.display]="isDisplayProviders"
+    [class.hide]="!isDisplayProviders"
+  ></app-providers-list>
+  <!-- <app-providers-list></app-providers-list> -->
   <app-stages></app-stages>
 </div>

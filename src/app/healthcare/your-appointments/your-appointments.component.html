@@ -1,0 +1,22 @@
+<div class="form_container">
+  <form action="">
+    <h1>Pending Appointments</h1>
+    @for (appointment of appointments; track $index) {
+    <div class="card">
+      <h2>{{ appointment.provider.name }}</h2>
+      <p>{{ appointment.date | date : "medium" }}</p>
+      <div class="btn">
+        <button
+          type="button"
+          (click)="EditAppointment(appointment, appointment._id)"
+        >
+          Edit
+        </button>
+        <button type="button" (click)="deleteAppointment(appointment._id)">
+          Delete
+        </button>
+      </div>
+    </div>
+    }
+  </form>
+</div>

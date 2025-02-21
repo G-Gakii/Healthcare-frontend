@@ -3,6 +3,8 @@ import { Geolocation } from '../../interface/geolocation';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ProvidersService } from '../../service/providers.service';
+import { ProvidersListComponent } from '../providers-list/providers-list.component';
+import { Providers } from '../../interface/providers';
 
 @Component({
   selector: 'app-providers',
@@ -17,6 +19,9 @@ export class ProvidersComponent {
   specilization = '';
   errorMsg = '';
   providerService = inject(ProvidersService);
+  isDisplayProvider = false;
+
+  providers: Providers[] = [];
   constructor() {
     this.geolocation();
   }
@@ -33,6 +38,8 @@ export class ProvidersComponent {
   }
 
   searchProvider() {
+    this.isDisplayProvider = true;
+    this.providerService.isDisplayProviders.set(this.isDisplayProvider);
     this.providerService
       .searchProvider(this.latitude, this.longitude, this.specilization)
       .subscribe({
@@ -41,5 +48,14 @@ export class ProvidersComponent {
         },
         error: (error) => console.log('geolocation', error),
       });
+  }
+  displayProviders() {
+    this.isDisplayProvider = !this.isDisplayProvider;
+    this.providerService.isDisplayProviders.set(this.isDisplayProvider);
+    this.providerService.getProviders().subscribe({
+      next: (res) => {
+        this.providerService.providersSignal.set(res.providers);
+      },
+    });
   }
 }

@@ -31,6 +31,9 @@
     loginForm.get("password")?.touched) {
     <p class="error">Password required</p>
     }
-    <button type="submit">sign in</button>
+    <button type="submit">
+      @if (!isLoading) {sign in} <app-spinner></app-spinner>
+    </button>
+    <p>Don't have an account<a href="/register">register</a></p>
   </form>
 </div>

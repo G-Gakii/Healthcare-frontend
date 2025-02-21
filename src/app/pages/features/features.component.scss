@@ -44,3 +44,16 @@
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .features_container {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 400px) {
+  .features_container {
+    .section_card {
+      grid-template-columns: auto;
+    }
+  }
+}

@@ -61,3 +61,19 @@
     }
   }
 }
+
+@media screen and (max-width: 400px) {
+  .stages_container {
+    .steps {
+      .steps.card {
+        flex-wrap: wrap;
+        .img {
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

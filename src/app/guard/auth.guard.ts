@@ -13,15 +13,12 @@ import { AuthService } from '../service/auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class authGuard implements CanActivate {
+export class AuthGuard implements CanActivate {
   constructor(private router: Router, private authService: AuthService) {}
 
   canActivate(): boolean {
-    if (this.authService.isloggingIn()) {
-      console.log('starting');
-
-      console.log(this.authService.isloggingIn());
-
+    const token = this.authService.getToken();
+    if (token) {
       return true;
     } else {
       this.router.navigate(['/login']);

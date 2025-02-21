@@ -11,6 +11,7 @@ export class AuthService {
   private http = inject(HttpClient);
   ErrorMsg = signal('');
   isloggingIn = signal(false);
+  isLoading = signal(false);
 
   constructor() {}
 
@@ -35,6 +36,10 @@ export class AuthService {
   };
   getToken() {
     return localStorage.getItem('token');
+  }
+  isTokenExpired(token: string): boolean {
+    const expiry = JSON.parse(atob(token.split('.')[1])).exp;
+    return Math.floor(new Date().getTime() / 1000) >= expiry;
   }
   private handleError = (error: HttpErrorResponse) => {
     if (error.error instanceof Error) {

@@ -1,0 +1,17 @@
+<div class="form_container">
+  <form action="" (submit)="bookAppointment()" [formGroup]="appointmentForm">
+    @if(errMsg){
+    <p class="error">{{ errMsg }}</p>
+    }
+    <label for="date">Book Appointment Time</label>
+    <input type="datetime-local" name="date" id="date" formControlName="date" />
+    @if(appointmentForm.get("date")?.hasError('required') &&
+    appointmentForm.get("date")?.touched){
+    <p class="error">Date required</p>
+    }
+
+    <button type="submit">
+      @if(isEdit){Edit Appointment} @else{Book Appointment}
+    </button>
+  </form>
+</div>

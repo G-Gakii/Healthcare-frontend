@@ -2,7 +2,7 @@
   @for (provider of providers; track $index) {
   <div class="provider_card" (click)="getproviderid(provider._id)">
     <h1>{{ provider.name }}</h1>
-    <p>{{ provider.location.coordinates }}</p>
+
     <p><span>Consultation fee:</span> {{ provider.consultation_fee }}</p>
     <h2>Accepted insurance:</h2>
     <div class="btn">

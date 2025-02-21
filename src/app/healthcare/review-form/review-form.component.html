@@ -1,0 +1,42 @@
+<div class="form_container">
+  <form action="">
+    @if(errorMessage){
+    <p class="error">{{ errorMessage }}</p>
+    }
+    <h1>Rate Us</h1>
+    <div class="rating_container">
+      <fa-icon
+        [class.rated]="rating >= 5"
+        [icon]="faStar"
+        (click)="setRating(5)"
+      ></fa-icon>
+      <fa-icon
+        [class.rated]="rating >= 4"
+        [icon]="faStar"
+        (click)="setRating(4)"
+      ></fa-icon>
+      <fa-icon
+        [class.rated]="rating >= 3"
+        [icon]="faStar"
+        (click)="setRating(3)"
+      ></fa-icon>
+      <fa-icon
+        [class.rated]="rating >= 2"
+        [icon]="faStar"
+        (click)="setRating(2)"
+      ></fa-icon>
+      <fa-icon
+        [class.rated]="rating >= 1"
+        [icon]="faStar"
+        (click)="setRating(1)"
+      ></fa-icon>
+    </div>
+    <textarea
+      [(ngModel)]="comment"
+      name="comment"
+      id="comment"
+      placeholder="What your feedback?"
+    ></textarea>
+    <button (click)="reviewProvider()">Review Us</button>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+.rating_container {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  fa-icon {
+    color: grey;
+    font-size: 24px;
+    cursor: pointer;
+    position: relative;
+
+    &.rated,
+    &:hover,
+    &:hover ~ fa-icon {
+      color: orange;
+    }
+
+    transition: color 0.3s ease-in-out;
+  }
+}
+textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  margin: 0.5rem 0;
+}

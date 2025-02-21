@@ -7,7 +7,7 @@ export interface User {
   username: string;
   email?: string;
   password: string;
-  role?: myRole;
+  // role?: myRole;
 }
 
 export interface Token {

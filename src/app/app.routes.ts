@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { MainComponent } from './pages/main/main.component';
-import { authGuard } from './guard/auth.guard';
+import { AuthGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
   {
@@ -44,6 +44,30 @@ export const routes: Routes = [
       import('./healthcare/provider-form/provider-form.component').then(
         (c) => c.ProviderFormComponent
       ),
-    canActivate: [authGuard],
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'appointment',
+    loadComponent: () =>
+      import('./healthcare/appointment/appointment.component').then(
+        (c) => c.AppointmentComponent
+      ),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'personalAppointment',
+    loadComponent: () =>
+      import('./healthcare/your-appointments/your-appointments.component').then(
+        (c) => c.YourAppointmentsComponent
+      ),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'review',
+    loadComponent: () =>
+      import('./healthcare/review-form/review-form.component').then(
+        (c) => c.ReviewFormComponent
+      ),
+    canActivate: [AuthGuard],
   },
 ];

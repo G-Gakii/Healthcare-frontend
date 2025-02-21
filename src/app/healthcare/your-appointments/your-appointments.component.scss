@@ -1,0 +1,15 @@
+@import "../../../variable.scss";
+h2 {
+  text-align: center;
+  color: $navblue;
+}
+.card {
+  background-color: white;
+  margin: 1rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  .btn {
+    display: flex;
+    gap: 1rem;
+  }
+}

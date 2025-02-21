@@ -2,16 +2,22 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ProvidersService } from '../../service/providers.service';
 import { Providers } from '../../interface/providers';
 import { ResourceLoader } from '@angular/compiler';
+import { Router } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-providers-details',
   standalone: true,
-  imports: [],
+  imports: [FontAwesomeModule, CommonModule],
   templateUrl: './providers-details.component.html',
   styleUrl: './providers-details.component.scss',
 })
 export class ProvidersDetailsComponent {
+  faStar = faStar;
   providerService = inject(ProvidersService);
+  router = inject(Router);
   provider: Providers = {
     location: { type: '', coordinates: [] },
     _id: '',
@@ -46,5 +52,13 @@ export class ProvidersDetailsComponent {
           console.log(res), (this.provider = res);
         },
       });
+  }
+  bookAppointment(id: string) {
+    this.providerService.providerId.set(id);
+    this.router.navigate(['/appointment']);
+  }
+  reviewProvider(id: string) {
+    this.providerService.providerId.set(id);
+    this.router.navigate(['/review']);
   }
 }

@@ -38,10 +38,6 @@ export class ProviderFormComponent {
   }
 
   addProvider() {
-    console.log();
-
-    console.log();
-
     this.providerService.AddProviders(this.providerForm.value).subscribe({
       next: (res) => console.log(res),
     });

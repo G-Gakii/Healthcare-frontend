@@ -1,32 +1,84 @@
-<div class="provider_container">
-  <h1>{{ provider.name }}</h1>
-  <h2>We offer these services:</h2>
+<div class="form_container">
+  <div class="provider_container">
+    <h1>{{ provider.name }}</h1>
+    <h2>We offer these services:</h2>
 
-  @for (prov of provider.specialization; track $index) {
-  <ul>
-    <li>{{ prov }}</li>
-  </ul>
+    @for (prov of provider.specialization; track $index) {
+    <ul>
+      <li>{{ prov }}</li>
+    </ul>
 
-  }
-  <h3>Accepted Insurance Providers</h3>
-  @for (prov of provider.insurance; track $index) {
-  <ul>
-    <li>{{ prov }}</li>
-  </ul>
+    }
+    <h2>Accepted Insurance Providers</h2>
+    @for (prov of provider.insurance; track $index) {
+    <ul>
+      <li>{{ prov }}</li>
+    </ul>
 
-  }
-  <p>{{ provider.rate }}</p>
+    }
 
-  <h3>Customers feedback</h3>
+    <div class="feedbackContainer">
+      <h3 class="feedback">Customers Feedback</h3>
+      <div class="rating">
+        <div class="rating_container overall">
+          <h4>TOTAL RATING ({{ provider.reviews.length }})</h4>
+          <h5>
+            <b>{{ provider.rate }}</b
+            >/5
+          </h5>
+          <fa-icon [class.rated]="provider.rate >= 1" [icon]="faStar"></fa-icon>
+          <fa-icon [class.rated]="provider.rate >= 2" [icon]="faStar"></fa-icon>
+          <fa-icon [class.rated]="provider.rate >= 3" [icon]="faStar"></fa-icon>
+          <fa-icon [class.rated]="provider.rate >= 4" [icon]="faStar"></fa-icon>
+          <fa-icon [class.rated]="provider.rate >= 5" [icon]="faStar"></fa-icon>
+        </div>
+        <div class="rating_comment">
+          <h4>Hospital Review</h4>
+          @for (review of provider.reviews; track $index) {
+          <ul>
+            <li class="rating_container review">
+              <fa-icon
+                [class.rated]="review.rating >= 1"
+                [icon]="faStar"
+              ></fa-icon>
+              <fa-icon
+                [class.rated]="review.rating >= 2"
+                [icon]="faStar"
+              ></fa-icon>
+              <fa-icon
+                [class.rated]="review.rating >= 3"
+                [icon]="faStar"
+              ></fa-icon>
+              <fa-icon
+                [class.rated]="review.rating >= 4"
+                [icon]="faStar"
+              ></fa-icon>
+              <fa-icon
+                [class.rated]="review.rating >= 5"
+                [icon]="faStar"
+              ></fa-icon>
+              <p>{{ review.comment }}</p>
 
-  @for (review of provider.reviews; track $index) {
-  <ul>
-    <li>{{ review.comment }} {{ review.rating }}</li>
-  </ul>
+              <p>{{ review.createdAt | date : "medium" }}</p>
+            </li>
 
-  }
-  <div class="btn">
-    <button class="btn link">Book Appointment</button>
-    <button class="btn link">Review us</button>
+            <hr />
+
+            <!-- <li>{{ review.comment }} {{ review.rating }}</li> -->
+          </ul>
+
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="btn">
+      <button (click)="bookAppointment(provider._id)" class="btn link">
+        Book Appointment
+      </button>
+      <button (click)="reviewProvider(provider._id)" class="btn link">
+        Review us
+      </button>
+    </div>
   </div>
 </div>

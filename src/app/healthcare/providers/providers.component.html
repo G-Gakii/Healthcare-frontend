@@ -2,6 +2,7 @@
   @if (errorMsg) {
   <p class="error">{{ errorMsg }}</p>
   }
+
   <h1>
     Find the right healthcare <br />
     providers in seconds
@@ -19,4 +20,5 @@
       placeholder="Search for a provider near you by specialization"
     />
   </section>
+  <button (click)="displayProviders()" id="providers">See All providers</button>
 </div>
