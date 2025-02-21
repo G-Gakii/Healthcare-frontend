@@ -44,7 +44,6 @@ export class LoginComponent {
     this.authService.isLoading.set(true);
     this.authService.loginUser(this.loginForm.value).subscribe({
       next: (res) => {
-        console.log(res);
         this.router.navigate(['']);
         this.authService.isLoading.set(false);
 
