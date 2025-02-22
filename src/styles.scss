@@ -1,17 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./variable.scss";
 
-// @font-face {
-//   font-family: "Roboto";
-//   src: url("/font/Roboto-VariableFont_wdth,wght.ttf") format("truetype");
-//   font-weight: normal;
-//   font-style: normal;
-// }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/font/Roboto-VariableFont_wdth,wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .form_container {
@@ -21,7 +20,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  // font-family: Roboto, serif;
+  font-family: "Roboto", serif;
   width: 100%;
 }
 h1 {
